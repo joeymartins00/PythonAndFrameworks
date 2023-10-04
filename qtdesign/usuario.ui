@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>761</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0.295455 rgba(0, 0, 0, 255), stop:0.448864 rgba(14, 8, 73, 255), stop:0.585227 rgba(14, 4, 0, 255), stop:0.625 rgba(9, 5, 48, 255), stop:0.75 rgba(30, 1, 1, 255), stop:0.86 rgba(39, 21, 0, 255), stop:0.935 rgba(41, 40, 9, 255), stop:0.988636 rgba(14, 1, 9, 255));</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>291</x>
+       <y>20</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(252, 252, 252);</string>
+     </property>
+     <property name="text">
+      <string>CADASTRO DE USUÁRIO</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>73</x>
+       <y>120</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(252, 252, 252);
+</string>
+     </property>
+     <property name="text">
+      <string>NOME:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>72</x>
+       <y>160</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(252, 252, 252);</string>
+     </property>
+     <property name="text">
+      <string>EMAIL:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>42</x>
+       <y>202</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(252, 252, 252);</string>
+     </property>
+     <property name="text">
+      <string>TELEFONE:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>243</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(252, 252, 252);</string>
+     </property>
+     <property name="text">
+      <string>MATRÍCULA:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="nome">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>120</y>
+       <width>611</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="email">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>161</y>
+       <width>611</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="telefone">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>202</y>
+       <width>611</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="matricula">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>243</y>
+       <width>611</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>72</x>
+       <y>321</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(252, 252, 252);</string>
+     </property>
+     <property name="text">
+      <string>PERFIL:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>239</x>
+       <y>321</y>
+       <width>91</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(252, 252, 252);</string>
+     </property>
+     <property name="text">
+      <string>Coordenador</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>379</x>
+       <y>321</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(252, 252, 252);</string>
+     </property>
+     <property name="text">
+      <string>Estudante</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>504</x>
+       <y>321</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(252, 252, 252);</string>
+     </property>
+     <property name="text">
+      <string>Professor</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="coordenador">
+     <property name="geometry">
+      <rect>
+       <x>222</x>
+       <y>324</y>
+       <width>16</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="estudante">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>324</y>
+       <width>16</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="professor">
+     <property name="geometry">
+      <rect>
+       <x>483</x>
+       <y>324</y>
+       <width>16</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cadastrar">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>410</y>
+       <width>450</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10;
+color: rgb(255, 255, 255);
+background-color: rgb(0, 150, 0);</string>
+     </property>
+     <property name="text">
+      <string>CADASTRAR</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancelar">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>470</y>
+       <width>450</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10;
+color: rgb(255, 255, 255);
+background-color: rgb(195, 65, 0);</string>
+     </property>
+     <property name="text">
+      <string>CANCELAR</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="listar">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>440</y>
+       <width>450</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10;
+color: rgb(255, 255, 255);
+background-color: rgb(170, 161, 145);</string>
+     </property>
+     <property name="text">
+      <string>LISTAR</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
