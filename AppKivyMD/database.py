@@ -6,7 +6,7 @@ class Database():
         self.banco = banco
 
     def connect(self):
-        self.conn = mysql.connector.connect(host='localhost',database=self.banco, user="root", password="")
+        self.conn = mysql.connector.connect(host='192.168.22.9',database=self.banco, user="fabrica", password="fabrica@2022")
         if self.conn.is_connected():
             self.cursor = self.conn.cursor()
             db_info = self.conn.get_server_info()
@@ -15,11 +15,11 @@ class Database():
             print("Erro ao conectar!!!")
 
 
-    def insert(self,pessoa):
+    def insert(self,clientes):
         self.connect()
 
         try:
-            self.cursor.execute("INSERT INTO pessoas (nome, cpf, email, telefone, endereco) VALUES (%s,%s,%s,%s,%s)", (pessoa[0],pessoa[1],pessoa[2],pessoa[3],pessoa[4]))
+            self.cursor.execute("INSERT INTO clientes (nome, cpf, email, telefone, endereco) VALUES (%s,%s,%s,%s,%s)", (clientes[0],clientes[1],clientes[2],clientes[3],clientes[4]))
             self.conn.commit()
             return "Cadastrada com sucesso!"
         
@@ -33,7 +33,7 @@ class Database():
     def select(self):
         self.connect()
         try:
-            self.cursor.execute("SELECT * FROM pessoas")
+            self.cursor.execute("SELECT * FROM clientes")
             result = self.cursor.fetchall()
             return result
 
@@ -49,7 +49,7 @@ class Database():
         self.connect()
         try:
             self.cursor.execute(f"""
-                SELECT * FROM pessoas
+                SELECT * FROM clientes
                                 WHERE NOME LIKE '%{texto}%' OR CPF LIKE '%{texto2}%';
                                 """)
             result = self.cursor.fetchall()
@@ -70,7 +70,7 @@ class Database():
     def delete(self,id):
         self.connect()
         try:
-            self.cursor.execute(f'delete from pessoas where id = {id}')
+            self.cursor.execute(f'delete from clientes where id = {id}')
             self.conn.commit()
             self.select()
 
@@ -87,7 +87,7 @@ class Database():
         self.connect()
         try:
             self.cursor.execute(f"""
-                UPDATE pessoas SET
+                UPDATE clientes SET
                     nome = '{dados[1]}',
                     cpf = '{dados[2]}',
                     email = '{dados[3]}',
@@ -131,6 +131,6 @@ if __name__ == "__main__":
     db.connect()
     # db.filter('valo', 'er')
     # db.update(dados)
-    db.insert()
+    # db.insert()
     # db.insert(task)
     db.close_connection()

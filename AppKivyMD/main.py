@@ -1,10 +1,10 @@
+from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.properties import ObjectProperty
-
-from kivymd.app import MDApp
 from kivymd.uix.scrollview import MDScrollView
 
-from database import Database
+# from database import Database
+import sqlite3
 
 KV = '''
 <ContentNavigationDrawer>
@@ -46,7 +46,7 @@ MDScreen:
     MDTopAppBar:
         pos_hint: {"top": 1}
         elevation: 4
-        title: "MDNavigationDrawer"
+        title: "Headbanger Store"
         left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
 
     MDNavigationLayout:
@@ -58,7 +58,7 @@ MDScreen:
                 name: "scr 1"
 
                 MDLabel:
-                    text: "CADASTRO DE TAREFAS"
+                    text: "CADASTRO DE CLIENTES"
                     halign: "center"
                     pos_hint: {"center_x": .5, "center_y": .8}
                     size_hint_x: .5
@@ -107,37 +107,75 @@ MDScreen:
                     id:btn_cancelar
                     text: "Cancelar"
                     md_bg_color: "red"
-                    pos_hint: {"center_x": .7, "center_y": .2}
+                    pos_hint: {"center_x": .8, "center_y": .2}
                     size_hint_x: .2
+
+                MDRaisedButton:
+                    id:btn_editar
+                    text: "Editar"
+                    md_bg_color: "orange"
+                    pos_hint: {"center_x": .5, "center_y": .2}
+                    size_hint_x: .2
+                    on_press: app.editar(nome.text,cpf.text,email.text,telefone.text,endereco.text)
                 
                 MDRaisedButton:
                     id:btn_cadastrar
                     text: "Cadastrar"
-                    md_bg_color: "orange"
-                    pos_hint: {"center_x": .3, "center_y": .2}
+                    md_bg_color: "green"
+                    pos_hint: {"center_x": .2, "center_y": .2}
                     size_hint_x: .2
                     on_press: app.cadastrar(nome.text,cpf.text,email.text,telefone.text,endereco.text)
 
+                
+
+
             MDScreen:
                 name: "scr 2"
 
                 MDLabel:
-                    text: "LISTA DE TAREFAS"
+                    text: "EDITAR CLIENTE"
                     halign: "center"
+                
+                MDTextField:
+                    # id:nome
+                    # hint_text: "NOME"
+                    # helper_text: "Digite seu nome"
+                    # helper_text_mode: "on_focus"
+                    # pos_hint: {"center_x": .5, "center_y": .7}
+                    # size_hint_x: .5
+                
+                MDTextField:
+                    # id:cpf
+                    # hint_text: "CPF"
+                    # helper_text: "Digite seu CPF"
+                    # helper_text_mode: "on_focus"
+                    # pos_hint: {"center_x": .5, "center_y": .6}
+                    # size_hint_x: .5
             
-            MDScreen:
-                name: "scr 2"
+            # MDScreen:
+            #     name: "scr 2"
 
-                MDLabel:
-                    text: "Screen 2"
-                    halign: "center"
+            #     MDLabel:
+            #         text: "Screen 2"
+            #         halign: "center"
+                
+            #     MDTextField:
+            #         id:nome
+            #         hint_text: "NOME"
+            #         helper_text: "Digite seu nome"
+            #         helper_text_mode: "on_focus"
+            #         pos_hint: {"center_x": .5, "center_y": .7}
+            #         size_hint_x: .5
+                
+            #     MDTextField:
+            #         id:cpf
+            #         hint_text: "CPF"
+            #         helper_text: "Digite seu CPF"
+            #         helper_text_mode: "on_focus"
+            #         pos_hint: {"center_x": .5, "center_y": .6}
+            #         size_hint_x: .5
             
-            MDScreen:
-                name: "scr 2"
-
-                MDLabel:
-                    text: "Screen 2"
-                    halign: "center"
+            
 
         MDNavigationDrawer:
             id: nav_drawer
@@ -154,17 +192,31 @@ class ContentNavigationDrawer(MDScrollView):
     nav_drawer = ObjectProperty()
 
 
-class Example(MDApp):
+class Headbanger(MDApp):
     def build(self):
         self.theme_cls.primary_palette = "Green"
         self.theme_cls.theme_style = "Dark"
+        self.banco = sqlite3.connect('banco.db')
+        self.cursor = self.banco.cursor()
+        self.cursor.execute('CREATE TABLE IF NOT EXISTS clientes (id integer not null primary key autoincrement , nome text, cpf text, email text, telefone text, endereco text)')
         return Builder.load_string(KV)
     
     def cadastrar(self,nome,cpf,email,telefone,endereco):
-        db = Database()
-        pessoa = [nome,cpf,email,telefone,endereco]
-        enviou = db.insert(pessoa)
-        print(enviou)
+        clientes = [nome,cpf,email,telefone,endereco]
+        self.cursor.execute('INSERT INTO clientes (nome, cpf, email, telefone, endereco) VALUES (?,?,?,?,?)', (clientes[0],clientes[1],clientes[2],clientes[3],clientes[4]))
+        self.banco.commit()
+
+    def editar(self,id):
+        clientes = [nome,cpf,email,telefone,endereco]
+        self.cursor.execute('UPDATE clientes SET nome = "Roberto" WHERE id = ?',(id))
+        self.banco.commit()
+
+    # def excluir(self,nome,cpf,email,telefone,endereco):
+    #     clientes = [nome,cpf,email,telefone,endereco]
+    #     self.cursor.execute('DELETE from clientes SET  (nome, cpf, email, telefone, endereco) VALUES (?,?,?,?,?)', (clientes[0],clientes[1],clientes[2],clientes[3],clientes[4]))
+    #     self.banco.commit()
+
+    
 
         
-Example().run()
+Headbanger().run()
