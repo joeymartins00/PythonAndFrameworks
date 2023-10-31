@@ -1,0 +1,31 @@
+MDBoxLayout:
+    orientation: 'vertical'
+
+    #CRIAR CAMPO DE TEXTO E BOTÃO
+
+    MDBoxLayout:
+        padding:10 #preenchimento
+        spacing:10 #espaçamento
+
+        #DEFINIR LAYOUT DO TOP
+        pos_hint: {'y': 0.9}
+        md_vg_color:"red"
+        size_hint_y:0.1
+        MDTextField:
+            hint_text:"Insert your name:" #texto de dica
+            required:True #obrigatório
+            mode:"fill" #modo #preencher
+
+            #DEFINIR LARGURA DO CAMPO DE TEXTO
+            size_hint_x: 0.6 #dica de tamanho X
+        MDRaisedButton:
+            text:"Add" #texto #adicionar
+            #DEFINIR A COR DE FUNDO DO SEU BOTÃO
+            md_bg_color:"orange"
+
+    #CRIAR LISTA DE ITENS
+    MDBoxLayout:
+        size_hint_x:0.9
+        MDSCrollView:
+            MDList:
+                id:todo_list
