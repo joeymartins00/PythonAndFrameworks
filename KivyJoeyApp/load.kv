@@ -1,0 +1,31 @@
+MDBoxLayout:
+    orientation: 'vertical'
+
+    # CREATE TEXTFIEL AND BUTTON
+    MDBoxLayout:
+        padding:10
+        spacing:10
+        # SET THIS LAYOUT TO TOP
+        pos_hint: {'y': 0.9}
+        size_hint_y:0.1
+        MDTextField:
+            id:inputtodo
+            hint_text:"Insert you name"
+            required:True
+            mode:"fill"
+
+            # SET YOU WIDTH TEXTFIEL
+            size_hint_x: 0.6
+        MDRaisedButton:
+            text:"Add"
+            # SET BG COLOR OF YOU BUTTON
+            md_bg_color:"orange"
+            # IF YOU CLICK BUTTON THEN ADD TO LIST
+            on_release:app.addnewtodo(inputtodo.text)
+
+    # CREATE LIST ITEM
+    MDBoxLayout:
+        size_hint_x:0.9
+        MDScrollView:
+            MDList:
+                id:todo_list
